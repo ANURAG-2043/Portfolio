@@ -15,13 +15,13 @@ export default class Screen {
         this.sourcePath = videoPath
 
         // Add click event listener for portfolio screen
-        if (videoPath === '/assets/videoPortfolio.mp4') {
+        if (videoPath === './assets/videoPortfolio.mp4') {
             this.mesh.userData.isPortfolioScreen = true
             window.addEventListener('click', (event) => this.onClick(event))
         }
 
         // Add click event listener for TV screen
-        if (videoPath === '/assets/videoStream.mp4') {
+        if (videoPath === './assets/videoStream.mp4') {
             this.mesh.userData.isTVScreen = true
             window.addEventListener('click', (event) => this.onClick(event))
         }

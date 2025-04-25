@@ -11,7 +11,7 @@ import Camera from './Camera.js'
 import World from './World.js'
 import Navigation from './Navigation.js'
 
-import assets from './assets.js'
+import assets from '../assets.js'
 
 export default class Experience
 {

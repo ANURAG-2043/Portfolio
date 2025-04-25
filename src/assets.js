@@ -20,9 +20,11 @@ export default [{
         { name: 'macScreenModel', source: '/assets/macScreenModel.glb', type: 'model' },
 
         { name: 'bakedDayTexture', source: '/assets/bakedDay.jpg', type: 'texture' },
+        // Most paths use absolute format
         { name: 'bakedNightTexture', source: '/assets/bakedNight.jpg', type: 'texture' },
+        // But this one uses relative format
+        { name: 'roomModel', source: '/assets/roomModel.glb' },
         { name: 'bakedNeutralTexture', source: '/assets/bakedNeutral.jpg', type: 'texture' },
         { name: 'lightMapTexture', source: '/assets/lightMap.jpg', type: 'texture' },
-        { name: 'roomModel', source: '/assets/roomModel.glb' },
     ]
 }]

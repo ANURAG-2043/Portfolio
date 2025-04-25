@@ -73,7 +73,7 @@ export default class World
         
         this.streamScreen = new Screen(
             videoMesh,
-            '/assets/videoStream.mp4'  // Updated path
+            './assets/videoStream.mp4'  // Updated path
         )
     }
 
@@ -82,14 +82,14 @@ export default class World
         // TV Screen
         this.pcScreen = new Screen(
             this.resources.items.pcScreenModel.scene.children[0],
-            '/assets/videoPortfolio.mp4'  // Updated path
+            './assets/videoPortfolio.mp4'  // Updated path
         )
 
         // Mac Screen
         const macScreenMesh = this.resources.items.macScreenModel.scene.children[0]
         this.macScreen = new Screen(
             macScreenMesh,
-            '/assets/videoMACscreen.mp4'  // Updated path
+            './assets/videoMACscreen.mp4'  // Updated path
         )
     }
 

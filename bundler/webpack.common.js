@@ -14,7 +14,23 @@ module.exports = {
     plugins: [
         new CopyWebpackPlugin({
             patterns: [
-                { from: path.resolve(__dirname, '../static') }
+                { from: path.resolve(__dirname, '../static') },
+                { 
+                    from: path.resolve(__dirname, '../portfolio.html'),
+                    to: 'portfolio.html'
+                },
+                { 
+                    from: path.resolve(__dirname, '../TVscreen.html'),
+                    to: 'TVscreen.html'
+                },
+                { 
+                    from: path.resolve(__dirname, '../404.html'),
+                    to: '404.html'
+                },
+                { 
+                    from: path.resolve(__dirname, '../Loading_Page'),
+                    to: 'Loading_Page'
+                },
             ]
         }),
         new HtmlWebpackPlugin({

@@ -146,6 +146,17 @@ export default class Experience
             this.stats.update()
         
         this.camera.update()
+
+        // Updated camera distance calculation
+        if(this.camera && this.camera.instance) {
+            const cameraPosition = this.camera.instance.position;
+            const distance = Math.sqrt(
+                cameraPosition.x * cameraPosition.x +
+                cameraPosition.y * cameraPosition.y +
+                cameraPosition.z * cameraPosition.z
+            );
+            this.handleUIVisibility(distance);
+        }
         
         if(this.renderer)
             this.renderer.update()
@@ -156,10 +167,28 @@ export default class Experience
         if(this.navigation)
             this.navigation.update()
 
-        window.requestAnimationFrame(() =>
-        {
+        window.requestAnimationFrame(() => {
             this.update()
         })
+    }
+
+    handleUIVisibility(distance) {
+        const uiElements = [
+            document.querySelector('.projects-section'),
+            document.querySelector('.contact-info'),
+            document.querySelector('.control-buttons'),
+            document.querySelector('.screen-instructions')
+        ];
+        
+        const threshold = 25; // Increased threshold value
+        
+        uiElements.forEach(element => {
+            if (element) {
+                element.style.opacity = distance <= threshold ? '0' : '1';
+                element.style.pointerEvents = distance <= threshold ? 'none' : 'auto';
+                element.style.transition = 'opacity 0.3s ease-in-out'; // Added smooth transition
+            }
+        });
     }
 
     resize()

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Portfolio Screen</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #ffffff;
+      font-family: 'Arial', sans-serif;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #333333;
+      font-size: 2rem;
+      background: linear-gradient(135deg, #4a90e2, #8e44ad, #e74c3c);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    section {
+      margin: 2rem 0;
+      padding: 3rem;
+      position: relative;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.9));
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    section:first-child {
+      margin-top: 2rem;
+    }
+
+    section:last-child {
+      margin-bottom: 1rem;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+      max-width: 1200px;
+      margin: 1rem auto;
+      padding: 1rem;
+    }
+
+    section:nth-child(1) .card {
+      background: linear-gradient(145deg, #4a90e2, #73b1f4);
+    }
+
+    section:nth-child(1) .card:hover {
+      background: linear-gradient(145deg, #3a80d2, #639ee4);
+    }
+
+    section:nth-child(2) .card {
+      background: linear-gradient(145deg, #8e44ad, #a55dc7);
+    }
+
+    section:nth-child(2) .card:hover {
+      background: linear-gradient(145deg, #7e349d, #9544b7);
+    }
+
+    section:nth-child(3) .card {
+      background: linear-gradient(145deg, #e74c3c, #ff6b6b);
+    }
+
+    section:nth-child(3) .card:hover {
+      background: linear-gradient(145deg, #d73c2c, #ef5b5b);
+    }
+
+    .card {
+      border-radius: 20px;
+      padding: 2rem;
+      color: white;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      min-height: 200px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      position: relative;
+      backdrop-filter: blur(5px);
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: -2px;
+      right: -2px;
+      bottom: -2px;
+      left: -2px;
+      background: linear-gradient(45deg, #4a90e2, #8e44ad, #e74c3c);
+      border-radius: 22px;
+      z-index: -1;
+      animation: borderGradient 3s ease infinite;
+      background-size: 200% 200%;
+    }
+
+    section:nth-child(1) .card::before {
+      background: linear-gradient(45deg, #4a90e2, #73b1f4, #a2d2ff);
+    }
+
+    section:nth-child(2) .card::before {
+      background: linear-gradient(45deg, #694aad, #a15dc1, #d1b3e1);
+    }
+
+    section:nth-child(3) .card::before {
+      background: linear-gradient(45deg, #e03a3a, #ff8468, #ffa58a);
+    }
+
+    @keyframes borderGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+
+    .card h3 {
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+      color: white;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    .back-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      padding: 10px 20px;
+      background: linear-gradient(145deg, #4a90e2, #8e44ad);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      text-decoration: none;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .back-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      background: linear-gradient(145deg, #3a80d2, #7e349d);
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="back-btn">← Back to Room</a>
+
+  <section>
+    <h2>Play Games I tried to make</h2>
+    <div class="card-container">
+      <a href="Loading_Page/index.html" class="card">
+        <h3>Plane Adventure</h3>
+        <p>An exciting 3D plane flying game with dynamic controls.</p>
+      </a>
+      <a href="./404.html" class="card">
+        <h3>Game 2</h3>
+        <p>Will be added shortly...</p>
+      </a>
+      <a href="./404.html" class="card">
+        <h3>Game 3</h3>
+        <p>Will be added shortly...</p>
+      </a>
+      <a href="./404.html" class="card">
+        <h3>Game 4</h3>
+        <p>Will be added shortly...</p>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Tech Articles on Medium</h2>
+    <div class="card-container">
+      <a href="https://medium.com/@anuragkumbhare2043/the-ultimate-guide-to-integrating-firebase-with-flutter-2025-edition-2bb8aeb272d3" class="card">
+        <h3>🚀 The Ultimate Guide to Integrating Firebase with Flutter (2025 Edition)</h3>
+        <p>Firebase + Flutter is a powerful combo that enables fast, secure, and scalable app development...</p>
+      </a>
+      <a href="https://medium.com/@anuragkumbhare2043/firebase-authentication-in-flutter-email-password-setup-guide-ab170d625e8a" class="card">
+        <h3>🔐 Firebase Authentication in Flutter: Email & Password Setup Guide</h3>
+        <p>If you’re building a Flutter app and want to integrate user authentication, Firebase is one of the best tools out there...</p>
+      </a>
+      <a href="https://medium.com/@anuragkumbhare2043/a-complete-guide-to-integrating-firebase-firestore-in-your-flutter-app-2a9c2c498c74" class="card">
+        <h3>🚀 A Complete Guide to Integrating Firebase Firestore in Your Flutter App</h3>
+        <p>Firestore is Google Firebase’s flexible, scalable NoSQL cloud database to store and sync data in real-time...</p>
+      </a>
+      <!-- <a href="#" class="card">
+        <h3>Article 4</h3>
+        <p>Web Development Best Practices</p>
+      </a> -->
+    </div>
+  </section>
+
+  <section>
+    <h2>Live Projects</h2>
+    <div class="card-container">
+      <a href="https://tellydailyshow.com" class="card" target="_blank">
+        <h3>TellyDailyShow</h3>
+        <p>A comprehensive entertainment platform featuring TV shows, web series updates, and celebrity news.</p>
+      </a>
+      <a href="https://tellyflame.com" class="card" target="_blank">
+        <h3>TellyFlame</h3>
+        <p>Entertainment news portal with real-time updates, user engagement features, and personalized content delivery.</p>
+      </a>
+      <a href="https://www.minervaconsultancy.in" class="card" target="_blank">
+        <h3>Minerva Consultancy</h3>
+        <p>Professional business consultancy website with service booking and client management system.</p>
+      </a>
+      <a href="#" class="card">
+        <h3>Project 4</h3>
+        <p>Portfolio website with Three.js animations</p>
+      </a>
+    </div>
+  </section>
+
+</body>
+</html>

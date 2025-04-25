@@ -2,24 +2,34 @@ import * as THREE from 'three'
 
 import Experience from './Experience.js'
 
-export default class Screen
-{
-    constructor(_mesh, _sourcePath)
-    {
+export default class Screen {
+    constructor(mesh, videoPath) {
         this.experience = new Experience()
         this.resources = this.experience.resources
         this.debug = this.experience.debug
         this.scene = this.experience.scene
-        this.world = this.experience.world
+        this.camera = this.experience.camera
+        
+        // Store mesh and video path
+        this.mesh = mesh
+        this.sourcePath = videoPath
 
-        this.mesh = _mesh
-        this.sourcePath = _sourcePath
+        // Add click event listener for portfolio screen
+        if (videoPath === '/assets/videoPortfolio.mp4') {
+            this.mesh.userData.isPortfolioScreen = true
+            window.addEventListener('click', (event) => this.onClick(event))
+        }
+
+        // Add click event listener for TV screen
+        if (videoPath === '/assets/videoStream.mp4') {
+            this.mesh.userData.isTVScreen = true
+            window.addEventListener('click', (event) => this.onClick(event))
+        }
 
         this.setModel()
     }
 
-    setModel()
-    {
+    setModel() {
         this.model = {}
 
         // Element
@@ -32,18 +42,10 @@ export default class Screen
         this.model.element.src = this.sourcePath
         this.model.element.play()
 
-        // Add click event to the video screen
-        this.mesh.addEventListener('click', () => {
-            const link = document.createElement('a')
-            // Use absolute path or correct relative path
-            link.href = './assets/Anurag_resume@2025.pdf'  
-            link.setAttribute('download', 'Anurag_resume@2025.pdf')
-            link.setAttribute('target', '_blank')
-            link.style.display = 'none'
-            document.body.appendChild(link)
-            link.click()
-            document.body.removeChild(link)
-        })
+        // Add cursor style
+        if (this.mesh.userData.isPortfolioScreen) {
+            document.body.style.cursor = 'pointer'
+        }
 
         // Texture
         this.model.texture = new THREE.VideoTexture(this.model.element)
@@ -66,5 +68,25 @@ export default class Screen
     update()
     {
         // this.model.group.rotation.y = Math.sin(this.time.elapsed * 0.0005) * 0.5
+    }
+
+    onClick(event) {
+        // Get mouse position and check if clicked on PC screen
+        const mouse = new THREE.Vector2()
+        mouse.x = (event.clientX / window.innerWidth) * 2 - 1
+        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1
+
+        const raycaster = new THREE.Raycaster()
+        raycaster.setFromCamera(mouse, this.camera.instance)
+
+        const intersects = raycaster.intersectObject(this.mesh)
+
+        if (intersects.length > 0) {
+            if (this.mesh.userData.isPortfolioScreen) {
+                window.open('/portfolio.html', '_blank')
+            } else if (this.mesh.userData.isTVScreen) {
+                window.open('/TVscreen.html', '_blank')
+            }
+        }
     }
 }

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/loading.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anurag Kumbhare | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #333333;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 100px 0 50px;
+            background: linear-gradient(135deg, #e0f2ff, #e5d9f2, #ffd6e0);
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            color: #5b3e8f;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: #666666;
+        }
+
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            color: #4a90e2;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #4a90e2, #8e44ad, #e74c3c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card, .experience-item {
+            background: linear-gradient(135deg, #ffffff, #f8f9fa);
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            transition: transform 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+        }
+
+        .card:hover, .experience-item:hover {
+            transform: translateY(-5px);
+            background: linear-gradient(135deg, #f8f9fa, #e0f2ff);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        a.btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: linear-gradient(45deg, #4a90e2, #8e44ad);
+            color: white;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s;
+            border: none;
+        }
+
+        a.btn:hover {
+            background: linear-gradient(45deg, #357abd, #6c3483);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: #666666;
+            background: linear-gradient(135deg, #e0f2ff, #e5d9f2);
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        h3 {
+            color: #5b3e8f;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #555555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="hero-title">Hi, I'm Anurag Kumbhare</h1>
+            <p class="subtitle">Full Stack Developer | AI Enthusiast | UI/UX Designer</p>
+        </header>
+
+        <section id="about">
+            <h2 class="section-title">About Me</h2>
+            <p>B.Tech Computer Engineering student at Vidyalankar Institute Of Technology, Mumbai with a CGPA of 9.78. Passionate about solving real-world problems with scalable software and immersive UI/UX. Love building with Three.js, React, and exploring AI-driven solutions.</p>
+        </section>
+
+        <section id="skills">
+            <h2 class="section-title">Skills</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Languages</h3>
+                    <p>C, C++, Java, Python, JavaScript, TypeScript, SQL</p>
+                </div>
+                <div class="card">
+                    <h3>Frameworks & Libraries</h3>
+                    <p>Node.js, Flask, FastAPI, React, Streamlit, Three.js</p>
+                </div>
+                <div class="card">
+                    <h3>Tools & Platforms</h3>
+                    <p>Google Cloud, Docker, Git, VS Code, MongoDB, MySQL</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 class="section-title">Projects</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Transformers in AI (Final Year Project)</h3>
+                    <p>Revolutionizing biometric authentication using AI Transformers and Siamese Networks for security systems.</p>
+                </div>
+                <div class="card">
+                    <h3>3D Portfolio</h3>
+                    <p>Interactive personal portfolio built using WebGL and Three.js for immersive experience.</p>
+                </div>
+                <div class="card">
+                    <h3>Sign Language Translator</h3>
+                    <p>App under development for multilingual sign language translation, aiming for inclusivity.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2 class="section-title">Experience</h2>
+            <div class="experience-item">
+                <h3>Project Fellow @ TIH-IoT, IIT Bombay</h3>
+                <p>Leading a research project funded by DST India. Focusing on accessibility through multilingual sign language translation.</p>
+            </div>
+            <div class="experience-item">
+                <h3>Software Developer Intern @ MIRA3D</h3>
+                <p>Porting and optimizing 3D modeling software using C++, TypeScript & 3JS.</p>
+            </div>
+            <div class="experience-item">
+                <h3>Software Developer Intern @ Cnergee Cloud</h3>
+                <p>Modernized Angular apps for better performance and maintainability.</p>
+            </div>
+            <div class="experience-item">
+                <h3>Software Developer Intern @ Geomitra Solutions</h3>
+                <p>Data-driven optimization of queries and system insights for improved analytics.</p>
+            </div>
+        </section>
+
+        <section id="extra">
+            <h2 class="section-title">Extracurricular</h2>
+            <div class="card">
+                <h3>Technical Lead – GDSC VIT</h3>
+                <p>Conducted workshops, mentored developers, and fostered a strong tech culture in college.</p>
+            </div>
+            <div class="card">
+                <h3>Volunteer – PetFed India</h3>
+                <p>Organized engaging events for pets and attendees, ensuring joyful experiences.</p>
+            </div>
+            <div class="card">
+                <h3>Google Cloud Facilitator</h3>
+                <p>Led 150+ students in Google Cloud Study Jams, securing Tier 1 ranking for the institute.</p>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2 class="section-title">Contact</h2>
+            <p>Feel free to connect or collaborate on projects!</p>
+            <a href="mailto:anuragkumbhare2043@gmail.com" class="btn">anuragkumbhare2043@gmail.com</a>
+            <br><br>
+            <a href="https://www.linkedin.com/in/anurag-kumbhare-8b7715204" class="btn" target="_blank">LinkedIn</a>
+            <a href="https://github.com/ANURAG-2043" class="btn" target="_blank">GitHub</a>
+        </section>
+
+        <footer>
+            <p>&copy; 2025 Anurag Kumbhare. All rights reserved.</p>
+        </footer>
+    </div>
+    <!-- Add this before closing body tag -->
+    <script src="js/pageTransition.js"></script>
+</body>
+</html>

@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Room in 3D</title>
+    <title>My Room</title>
 
-    <meta itemprop="name" content="My Room in 3D — Experiment">
+    <meta itemprop="name" content="My Room">
     <meta itemprop="description" content="WebGL experiment with Three.js">
-    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/houssemlachtar/My-3D-Room/main/src/3DRoomLogo.icox">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,25 +66,141 @@
             bottom: 20px;
             left: 20px;
             display: flex;
-            gap: 10px;
+            gap: 15px;
             z-index: 100;
         }
 
         .control-button {
-            padding: 10px 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 5px;
+            padding: 12px 25px;
             color: white;
             font-family: 'Roboto', sans-serif;
+            font-weight: 500;
             cursor: pointer;
+            border: none;
+            border-radius: 8px;
             transition: all 0.3s ease;
+            background-size: 200% auto;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .control-button:nth-child(1) {
+            background-image: linear-gradient(45deg, #0077B5, #00A0DC, #0077B5);
+        }
+
+        .control-button:nth-child(2) {
+            background-image: linear-gradient(45deg, #24292E, #404448, #24292E);
+        }
+
+        .control-button:nth-child(3) {
+            background-image: linear-gradient(45deg, #FF416C, #FF4B2B, #FF416C);
         }
 
         .control-button:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
+            background-position: right center;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
+
+        .control-button:active {
+            transform: translateY(-1px);
+        }
+
+        .projects-section {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 100;
+        }
+
+        .project-button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-size: 200% auto;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-button:nth-child(1) {
+            background-image: linear-gradient(45deg, #00ff87, #60efff, #00ff87, #60efff);
+            background-size: 300% 300%;
+            animation: gradient-animation 5s ease infinite;
+        }
+
+        .project-button:nth-child(2) {
+            background-image: linear-gradient(45deg, #ff00ff, #00ffff, #ff00ff, #00ffff);
+            background-size: 300% 300%;
+            animation: gradient-animation 5s ease infinite;
+        }
+
+        .project-button:nth-child(3) {
+            background-image: linear-gradient(45deg, #ff8008, #ffc837, #ff8008, #ffc837);
+            background-size: 300% 300%;
+            animation: gradient-animation 5s ease infinite;
+        }
+
+        .project-button:nth-child(4) {
+            background-image: linear-gradient(45deg, #4facfe, #00f2fe, #4facfe, #00f2fe);
+            background-size: 300% 300%;
+            animation: gradient-animation 5s ease infinite;
+        }
+
+        .project-button:nth-child(5) {
+            background-image: linear-gradient(45deg, #00ff87, #60efff, #00ff87, #60efff);
+            background-size: 300% 300%;
+            animation: gradient-animation 5s ease infinite;
+        }
+
+        .project-button:nth-child(6) {
+            background-image: linear-gradient(45deg, #ff00ff, #00ffff, #ff00ff, #00ffff);
+            background-size: 300% 300%;
+            animation: gradient-animation 5s ease infinite;
+        }
+
+        .project-button:nth-child(7) {
+            background-image: linear-gradient(45deg, #ff8008, #ffc837, #ff8008, #ffc837);
+            background-size: 300% 300%;
+            animation: gradient-animation 5s ease infinite;
+        }
+
+        .project-button:nth-child(8) {
+            background-image: linear-gradient(45deg, #4facfe, #00f2fe, #4facfe, #00f2fe);
+            background-size: 300% 300%;
+            animation: gradient-animation 5s ease infinite;
+        }
+
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .project-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .project-button img {
+            width: 30px;
+            height: 30px;
+            filter: invert(1);
+        }
+        .project-button i {
+                font-size: 24px;
+                color: white;
+            }
+        
+            .project-button:hover i {
+                transform: scale(1.1);
+            }
     </style>
 </head>
 
@@ -93,19 +208,44 @@
     <!-- Loading Screen with corrected path -->
     <div class="loading-screen">
         <img src="../static/assets/space.gif" alt="Loading...">
-        <div class="loading-text">Welcome to My 3D Room</div>
+        <div class="loading-text">🎉 Yo! Welcome to my digital crib — tap around and vibe with the portfolio magic! 🚀✨</div>
     </div>
 
-    <div class="experience"></div>
+    <div class="experience">
+    </div>
+
+    <!-- Add this before the control-buttons div -->
+    <div class="projects-section">
+        <button class="project-button" onclick="window.open('../404.html', '_blank')" title="Project 1">
+            <i class="fas fa-code"></i>
+        </button>
+        <button class="project-button" onclick="window.open('../404.html', '_blank')" title="Project 2">
+            <i class="fas fa-robot"></i>
+        </button>
+        <button class="project-button" onclick="window.open('../404.html', '_blank')" title="Project 3">
+            <i class="fas fa-mobile-alt"></i>
+        </button>
+        <button class="project-button" onclick="window.open('../404.html', '_blank')" title="Project 4">
+            <i class="fas fa-brain"></i>
+        </button>
+        <!-- <button class="project-button" onclick="window.open('https://project1-url.com', '_blank')" title="Project 1">
+            <i class="fas fa-code"></i>
+        </button>
+        <button class="project-button" onclick="window.open('https://project2-url.com', '_blank')" title="Project 2">
+            <i class="fas fa-robot"></i>
+        </button>
+        <button class="project-button" onclick="window.open('https://project3-url.com', '_blank')" title="Project 3">
+            <i class="fas fa-mobile-alt"></i>
+        </button>
+        <button class="project-button" onclick="window.open('https://project4-url.com', '_blank')" title="Project 4">
+            <i class="fas fa-brain"></i>
+        </button> -->
+    </div>
 
     <div class="control-buttons">
         <button class="control-button" onclick="window.open('https://www.linkedin.com/in/anurag-kumbhare-8b7715204/', '_blank')">LinkedIn</button>
         <button class="control-button" onclick="window.open('https://github.com/ANURAG-2043', '_blank')">GitHub</button>
         <button class="control-button" onclick="downloadResume()">Resume</button>
-    </div>
-
-    <div class="credits">
-        Room in 3D by <a href=" " target="_blank">AK</a>
     </div>
 
     <script>
@@ -117,8 +257,8 @@
 
         function downloadResume() {
             const link = document.createElement('a');
-            link.href = '../static/assets/Anurag_resume@2025.pdf';
-            link.download = 'Anurag_resume@2025.pdf';
+            link.href = '../static/assets/Anurag_resume.pdf';
+            link.download = 'Anurag_resume.pdf';
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
@@ -126,3 +266,164 @@
     </script>
 </body>
 </html>
+
+<head>
+    <!-- Add this Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    <style>
+        .screen-instructions {
+            position: fixed;
+            left: 20px;
+            top: 25%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            z-index: 100;
+        }
+
+        .instruction-text {
+            font-family: 'Press Start 2P', cursive;
+            color: white;
+            font-size: 14px;
+            text-shadow: 1px 1px 0px #ff00ff,
+                         2px 2px 0px #00ffff;
+            padding: 16px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            border-left: 2px solid #00ff87;
+            animation: pulse 2s ease-in-out infinite;
+            max-width: 350px;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.05); opacity: 1; }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Add this after the experience div -->
+    <div class="screen-instructions">
+        <div class="instruction-text">🖥️ Click PC screen for Portfolio</div>
+        <div class="instruction-text">📺 Click TV screen to Play the Game</div>
+        <!-- <div class="instruction-text">🎮 Use WASD keys to move around</div>
+        <div class="instruction-text">🔍 Explore the room to find hidden features!</div> -->
+    </div>
+</body>
+
+<head>
+    <!-- Add Font Awesome if not already added -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* Add this new CSS */
+        .contact-info {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;  /* Added gap between items */
+            z-index: 100;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;  /* Increased padding */
+            border-radius: 8px;
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;  /* Added gap between icon and text */
+            padding: 5px 0;  /* Added vertical padding */
+        }
+
+        .contact-header {
+            padding-bottom: 10px;  /* Added bottom padding */
+            margin-bottom: 5px;    /* Added margin */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-info:hover {
+            background: rgba(0, 0, 0, 0.7);
+            transform: translateY(-2px);
+        }
+
+        .contact-info i {
+            font-size: 20px;
+            color: #00ff87;
+        }
+
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .contact-info a:hover {
+            color: #00ff87;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Add this after the loading screen div -->
+    <div class="contact-info">
+        <div class="contact-header">
+            <i class="fas fa-briefcase"></i>
+            <span>Available for Work</span>
+        </div>
+        <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:anuragkumbhare2043@gmail.com">anuragkumbhare2043@gmail.com</a>
+        </div>
+        <div class="contact-item">
+            <i class="fab fa-whatsapp"></i>
+            <a href="https://wa.me/+918087006033" target="_blank">Connect on WhatsApp</a>
+        </div>
+    </div>
+</body>
+
+<script>
+    // Add this function to handle UI visibility
+    function handleUIVisibility(distance) {
+        const uiElements = [
+            document.querySelector('.projects-section'),
+            document.querySelector('.contact-info'),
+            document.querySelector('.control-buttons'),
+            document.querySelector('.screen-instructions')
+        ];
+        
+        // Define threshold distance for UI visibility
+        const threshold = 10; // Adjust this value based on your scene scale
+        
+        uiElements.forEach(element => {
+            if (distance <= threshold) {
+                element.style.opacity = '0';
+                element.style.pointerEvents = 'none';
+            } else {
+                element.style.opacity = '1';
+                element.style.pointerEvents = 'auto';
+            }
+        });
+    }
+
+    // Add this to your experience.js or where you handle camera updates
+    experience.camera.instance.position.distanceTo(targetPosition);
+    handleUIVisibility(distance);
+</script>
+
+<style>
+    .projects-section,
+    .contact-info,
+    .control-buttons,
+    .screen-instructions {
+        transition: opacity 0.5s ease-in-out;
+    }
+</style>

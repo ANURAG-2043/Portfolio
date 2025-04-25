@@ -27,10 +27,10 @@ module.exports = {
                     from: path.resolve(__dirname, '../404.html'),
                     to: '404.html'
                 },
-                { 
-                    from: path.resolve(__dirname, '../Loading_Page'),
-                    to: 'Loading_Page'
-                },
+                // { 
+                //     from: path.resolve(__dirname, '../Loading_Page'),
+                //     to: 'Loading_Page'
+                // },
             ]
         }),
         new HtmlWebpackPlugin({

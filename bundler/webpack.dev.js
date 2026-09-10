@@ -1,7 +1,6 @@
 const { merge } = require('webpack-merge')
 const commonConfiguration = require('./webpack.common.js')
 const ip = require('internal-ip')
-const portFinderSync = require('portfinder-sync')
 
 const infoColor = (_message) =>
 {
@@ -15,10 +14,12 @@ module.exports = merge(
         devServer:
         {
             host: '0.0.0.0',
-            port: portFinderSync.getPort(8080),
+            port: 8080,
             contentBase: './dist',
             watchContentBase: true,
-            open: true,
+            // Browser launch is handled outside the dev server so this also works
+            // in restricted or headless environments.
+            open: false,
             https: false,
             useLocalIp: true,
             disableHostCheck: true,

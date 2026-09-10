@@ -7,6 +7,8 @@ import CoffeeSteam from './CoffeeSteam.js'
 import TopChair from './TopChair.js'
 import ElgatoLight from './ElgatoLight.js'
 import Screen from './Screen.js'
+import Starfield from './Starfield.js'
+import MonitorCallout from './MonitorCallout.js'
 
 export default class World
 {
@@ -16,6 +18,7 @@ export default class World
         this.config = this.experience.config
         this.scene = this.experience.scene
         this.resources = this.experience.resources
+        this.setStarfield()
         
         this.resources.on('groupEnd', (_group) =>
         {
@@ -63,33 +66,43 @@ export default class World
         this.elgatoLight = new ElgatoLight()
     }
 
+    setStarfield()
+    {
+        this.starfield = new Starfield()
+    }
+
     setBouncingLogo()
     {
-        // Create video screen at the bouncing logo position
-        const videoPlane = new THREE.PlaneGeometry(4.2, 2.37, 2, 2)
-        videoPlane.rotateY(-Math.PI * 0.5)
-        const videoMesh = new THREE.Mesh(videoPlane)
-        videoMesh.position.set(4.188, 2.667, 1.830)
+        // Large TV: static development artwork with no click-through page.
+        const tvPlane = new THREE.PlaneGeometry(4.2, 2.37, 2, 2)
+        tvPlane.rotateY(-Math.PI * 0.5)
+        const tvMesh = new THREE.Mesh(tvPlane)
+        tvMesh.position.set(4.188, 2.667, 1.830)
         
         this.streamScreen = new Screen(
-            videoMesh,
-            './assets/videoStream.mp4'  // Updated path
+            tvMesh,
+            './assets/developer-cloud-architecture.png',
+            'image'
         )
     }
 
     setScreens()
     {
-        // TV Screen
+        // Monitor: restore the portfolio video and its dedicated portfolio-page link.
         this.pcScreen = new Screen(
             this.resources.items.pcScreenModel.scene.children[0],
-            './assets/videoPortfolio.mp4'  // Updated path
+            './assets/videoPortfolio.mp4',
+            'video',
+            '/portfolio.html'
         )
+        this.monitorCallout = new MonitorCallout(this.pcScreen.mesh)
 
-        // Mac Screen
+        // Laptop screen: dedicated ANURAG WORKSPACE artwork.
         const macScreenMesh = this.resources.items.macScreenModel.scene.children[0]
         this.macScreen = new Screen(
             macScreenMesh,
-            './assets/videoMACscreen.mp4'  // Updated path
+            './assets/anurag-workspace.png',
+            'image'
         )
     }
 
@@ -115,6 +128,12 @@ export default class World
 
         if(this.streamScreen)
             this.streamScreen.update()
+
+        if(this.starfield)
+            this.starfield.update()
+
+        if(this.monitorCallout)
+            this.monitorCallout.update()
     }
 
     resize()

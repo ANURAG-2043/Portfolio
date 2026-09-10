@@ -27,6 +27,10 @@ module.exports = {
                     from: path.resolve(__dirname, '../404.html'),
                     to: '404.html'
                 },
+                {
+                    from: path.resolve(__dirname, '../public/assets/Anurag_resume.pdf'),
+                    to: 'assets/Anurag_resume.pdf'
+                },
                 // { 
                 //     from: path.resolve(__dirname, '../Loading_Page'),
                 //     to: 'Loading_Page'

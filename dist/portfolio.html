@@ -48,6 +48,10 @@
     .role { font-size:.86rem; font-weight:800; }
     .job .company { color:#c5d2dc; margin:2px 0 4px; font-size:.73rem; }
     .job p { margin:0; color:#aebdca; max-width:650px; font-size:.72rem; line-height:1.5; }
+    .job h3 { margin:12px 0 5px; font-size:.8rem; line-height:1.4; }
+    .job .project-stack { color:var(--cyan); margin-bottom:8px; }
+    .job ul { padding-left:17px; margin:8px 0 0; color:var(--soft); font-size:.72rem; line-height:1.5; }
+    .job li + li { margin-top:6px; }
     .strengths { padding-left:39px; border-left:1px solid var(--line); }
     .strength-list { border-top:1px solid var(--line); }
     .strength { display:grid; grid-template-columns:54px 1fr; gap:16px; padding:11px 0; border-bottom:1px solid var(--line); }
@@ -98,7 +102,23 @@
       <div>
         <h2 class="section-title">Experience</h2>
         <div class="timeline">
-          <article class="job"><div class="date">Jun 2025 — Present</div><div><div class="role">Oracle Financial Software Services</div><div class="company">Associate Technical Consultant · Mumbai, India</div><p>Migrating 20 of 200+ fintech applications to a cloud-native 3-tier Azure architecture.<br>Built Java REST APIs that reduced report-generation latency by 40% with zero regressions.</p></div></article>
+          <article class="job">
+            <div class="date">Jun 2025 — Present</div>
+            <div>
+              <div class="role">Oracle Financial Software Services</div>
+              <div class="company">Associate Technical Consultant · Mumbai, India</div>
+              <p>Contributing to the migration and modernization of 200+ enterprise applications from on-premises legacy environments to Azure Cloud, including application analysis, refactoring and cloud-readiness activities.</p>
+              <h3>State Street PAM — Portfolio Accounting &amp; Investment Management Migration</h3>
+              <p class="project-stack">2026 · Java · Spring Boot · REST APIs · Azure · SQL</p>
+              <p>Modernizing a portfolio accounting and investment management system used by insurers and asset managers for portfolio reporting, fund accounting and reconciliation.</p>
+              <ul>
+                <li>Modernized legacy PAM applications from tightly coupled two-tier architecture to scalable three-tier architecture, introducing REST APIs to separate the UI, business and database layers.</li>
+                <li>Developed and integrated Java/Spring Boot APIs, migrated business logic, performed debugging, functional and integration testing, and supported Azure deployment and configuration.</li>
+                <li>Contributed to the end-to-end migration and delivery of 15+ applications over a seven-month engagement, collaborating with State Street project leads and senior stakeholders.</li>
+                <li>Improved report-generation performance by approximately 40%, reducing execution time from 20–23 minutes to 12–14 minutes while maintaining existing functionality.</li>
+              </ul>
+            </div>
+          </article>
           <article class="job"><div class="date">Apr 2024 — Feb 2025</div><div><div class="role">TIH-IoT @ IIT Bombay</div><div class="company">Project Fellow · Mumbai, India</div><p>Co-authored a proposal that secured a ₹6 lakh DST research grant and built a multilingual<br>sign-language translator with Python, OpenCV and MediaPipe, achieving 83% accuracy.</p></div></article>
           <article class="job"><div class="date">Aug 2024 — Oct 2024</div><div><div class="role">MIRA3D Samisan Tech Pvt. Ltd</div><div class="company">Software Development Intern</div><p>Ported 3D modelling software to a new stack with C++, TypeScript and Three.js,<br>improving feature scalability and user experience.</p></div></article>
         </div>

@@ -81,97 +81,34 @@ export default class Navigation
             this.view.zoom.delta += _delta
         }
 
-        /**
-         * Mouse events
-         */
-        this.view.onMouseDown = (_event) =>
-        {
-            _event.preventDefault()
-
-            this.view.drag.alternative = _event.button === 2 || _event.button === 1 || _event.ctrlKey || _event.shiftKey
-
-            this.view.down(_event.clientX, _event.clientY)
-
-            window.addEventListener('mouseup', this.view.onMouseUp)
-            window.addEventListener('mousemove', this.view.onMouseMove)
-        }
-
-        this.view.onMouseMove = (_event) =>
-        {
-            _event.preventDefault()
-            
-            this.view.move(_event.clientX, _event.clientY)
-        }
-
-        this.view.onMouseUp = (_event) =>
-        {
-            _event.preventDefault()
-            
+        // Keep gestures on the room surface; normal links retain native touch behavior.
+        const pointers = new Map()
+        this.targetElement.addEventListener('pointerdown', (event) => {
+            pointers.set(event.pointerId, { x: event.clientX, y: event.clientY })
+            this.targetElement.setPointerCapture(event.pointerId)
+            this.view.drag.alternative = pointers.size > 1 || event.button === 2 || event.button === 1 || event.ctrlKey || event.shiftKey
+            this.view.down(event.clientX, event.clientY)
+        })
+        this.targetElement.addEventListener('pointermove', (event) => {
+            if (!pointers.has(event.pointerId)) return
+            pointers.set(event.pointerId, { x: event.clientX, y: event.clientY })
+            this.view.move(event.clientX, event.clientY)
+        })
+        const endPointer = (event) => {
+            pointers.delete(event.pointerId)
             this.view.up()
-
-            window.removeEventListener('mouseup', this.view.onMouseUp)
-            window.removeEventListener('mousemove', this.view.onMouseMove)
+            const remaining = pointers.values().next().value
+            if (remaining) this.view.down(remaining.x, remaining.y)
+            this.view.drag.alternative = pointers.size > 1
         }
-
-        this.targetElement.addEventListener('mousedown', this.view.onMouseDown)
-        
-        /**
-         * Touch events
-         */
-        this.view.onTouchStart = (_event) =>
-        {
-            _event.preventDefault()
-
-            this.view.drag.alternative = _event.touches.length > 1
-
-            this.view.down(_event.touches[0].clientX, _event.touches[0].clientY)
-
-            window.addEventListener('touchend', this.view.onTouchEnd)
-            window.addEventListener('touchmove', this.view.onTouchMove)
-        }
-
-        this.view.onTouchMove = (_event) =>
-        {
-            _event.preventDefault()
-            
-            this.view.move(_event.touches[0].clientX, _event.touches[0].clientY)
-        }
-
-        this.view.onTouchEnd = (_event) =>
-        {
-            _event.preventDefault()
-            
-            this.view.up()
-
-            window.removeEventListener('touchend', this.view.onTouchEnd)
-            window.removeEventListener('touchmove', this.view.onTouchMove)
-        }
-
-        window.addEventListener('touchstart', this.view.onTouchStart)
-
-        /**
-         * Context menu
-         */
-        this.view.onContextMenu = (_event) =>
-        {
-            _event.preventDefault()
-        }
-        
-        window.addEventListener('contextmenu', this.view.onContextMenu)
-
-        /**
-         * Wheel
-         */
-        this.view.onWheel = (_event) =>
-        {
-            _event.preventDefault()
-
-            const normalized = normalizeWheel(_event)
-            this.view.zoomIn(normalized.pixelY)
-        }
-        
-        window.addEventListener('mousewheel', this.view.onWheel, { passive: false })
-        window.addEventListener('wheel', this.view.onWheel, { passive: false })
+        this.targetElement.addEventListener('pointerup', endPointer)
+        this.targetElement.addEventListener('pointercancel', endPointer)
+        this.targetElement.addEventListener('lostpointercapture', endPointer)
+        this.targetElement.addEventListener('contextmenu', (event) => event.preventDefault())
+        this.targetElement.addEventListener('wheel', (event) => {
+            event.preventDefault()
+            this.view.zoomIn(normalizeWheel(event).pixelY)
+        }, { passive: false })
     }
 
     update()

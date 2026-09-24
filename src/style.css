@@ -10,6 +10,7 @@ html, body {
 body { color: #f5f5f5; font-family: Inter, Arial, sans-serif; font-size: 14px; }
 
 .experience { position: fixed; inset: 0; width: 100vw; height: 100vh; }
+.experience { touch-action: none; }
 
 .site-header, .social-links { position: fixed; z-index: 10; }
 
@@ -93,6 +94,10 @@ body { color: #f5f5f5; font-family: Inter, Arial, sans-serif; font-size: 14px; }
 }
 
 .social-links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    touch-action: manipulation;
     color: rgba(255, 255, 255, 0.85);
     font-size: 13px;
     font-weight: 500;
@@ -103,6 +108,6 @@ body { color: #f5f5f5; font-family: Inter, Arial, sans-serif; font-size: 14px; }
 .social-links a:hover, .social-links a:focus-visible { color: #fff; outline: none; }
 
 @media (max-width: 620px) {
-    .social-links { gap: 16px; }
+    .social-links { gap: 16px; flex-wrap: wrap; right: 16px; bottom: max(16px, env(safe-area-inset-bottom)); }
     .monitor-callout { display: none; }
 }

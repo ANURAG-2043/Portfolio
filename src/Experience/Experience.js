@@ -125,7 +125,7 @@ export default class Experience
         this.resources = new Resources(assets)
         this.resources.on('ready', () => {
             console.log('Resources loaded successfully');
-            document.querySelector('.loading-screen').classList.add('hidden');
+            document.querySelector('.loading-screen')?.classList.add('hidden');
         })
         
         // Add error handling
